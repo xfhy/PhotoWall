@@ -196,12 +196,12 @@ public class MainActivity extends AppCompatActivity {
      */
     public void addBitmapToMemoryCache(String key, Bitmap bitmap) {
         //缓存中没有->加入缓存
-        if (getBitmapFromMemoryCache(key) == null) {
+        if (getBitmapFromMemoryCache(key) == null && key != null && bitmap != null) {
             mMemoryCache.put(key, bitmap);
         }
     }
 
-    public void flushCache(){
+    public void flushCache() {
         if (mDiskLruCache != null) {
             try {
                 mDiskLruCache.flush();
